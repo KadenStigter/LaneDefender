@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerMoving;
     [SerializeField] private GameObject _player;
     [SerializeField] private int _playerSpeed = 5;
+    [SerializeField] private GameObject _missle;
+    [SerializeField] private int _missleSpeed;
+    private int missleDirection = 1;
     private float moveDirection;
 
     /// <summary>
@@ -46,9 +49,14 @@ public class PlayerController : MonoBehaviour
         isPlayerMoving = false;
     }
 
+    /// <summary>
+    /// allows the player to fire a laser
+    /// </summary>
+    /// <param name="context"></param>
     private void Shoot_started(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        var projectile = Instantiate(_missle, transform.position, transform.rotation);
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * moveDirection, 0);
     }
 
     /// <summary>
@@ -75,12 +83,6 @@ public class PlayerController : MonoBehaviour
     {
         isPlayerMoving = false;
     }
-
-    /// <summary>
-    /// allows the player to fire a laser
-    /// </summary>
-    /// <param name="context"></param>
-   
     
     /// <summary>
     /// resets the game
