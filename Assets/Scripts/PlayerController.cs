@@ -5,6 +5,7 @@
 //
 // Brief Description : Sets up the main controls for the player in the game
 *****************************************************************************/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -18,7 +19,9 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerInput;
     private InputAction move;
     private InputAction shoot;
-    private bool isPlayerMoving = false;
+    private InputAction restart;
+    private InputAction quit;
+    private bool isPlayerMoving;
     [SerializeField] private GameObject _player;
     [SerializeField] private int _playerSpeed = 5;
     private float moveDirection;
@@ -31,10 +34,21 @@ public class PlayerController : MonoBehaviour
         playerInput.currentActionMap.Enable();
         move = playerInput.currentActionMap.FindAction("Move");
         shoot = playerInput.currentActionMap.FindAction("Shoot");
+        restart = playerInput.currentActionMap.FindAction("Restart");
+        quit = playerInput.currentActionMap.FindAction("Quit");
 
         move.started += Move_started;
         move.canceled += Move_canceled;
         shoot.started += Shoot_started;
+        restart.started += Restart_started;
+        quit.started += Quit_started;
+
+        isPlayerMoving = false;
+    }
+
+    private void Shoot_started(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -45,6 +59,8 @@ public class PlayerController : MonoBehaviour
         move.started -= Move_started;
         move.canceled -= Move_canceled;
         shoot.started -= Shoot_started;
+        restart.started -= Restart_started;
+        quit.started -= Quit_started;
     }
 
     /// <summary>
@@ -64,15 +80,12 @@ public class PlayerController : MonoBehaviour
     /// allows the player to fire a laser
     /// </summary>
     /// <param name="context"></param>
-    private void Shoot_started(InputAction.CallbackContext context)
-    {
-
-    }
+   
     
     /// <summary>
     /// resets the game
     /// </summary>
-    private void OnRestart()
+    private void Restart_started(InputAction.CallbackContext context)
     {
         SceneManager.LoadScene(0);
     }
@@ -80,7 +93,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// ends the game when the player presses q
     /// </summary>
-    private void OnQuit()
+    private void Quit_started(InputAction.CallbackContext context)
     {
         Application.Quit();
     }
@@ -90,6 +103,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        /*controls the player's speed*/
         if (isPlayerMoving)
         {
             _player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _playerSpeed * moveDirection);
