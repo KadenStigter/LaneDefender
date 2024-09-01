@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7849346126097634502}
   - component: {fileID: 2179682808250826010}
   - component: {fileID: -1160775291040560840}
+  - component: {fileID: -783426371556769311}
   m_Layer: 0
   m_Name: slimeBlock
   m_TagString: Enemy
@@ -158,3 +159,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-783426371556769311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579547355894603682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fbfb5b4064e7d74d96b8ccbd46a9254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _health: 5
