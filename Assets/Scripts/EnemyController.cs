@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("projectile"))
         {
             _health -= 1;
+            StartCoroutine(enemyDamage());
             Destroy(collision.gameObject);
             if (_health <= 0)
             {
@@ -48,6 +49,14 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator enemyDamage()
+    {
+        enemyRb.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        enemyRb.velocity = new Vector2(_speed * moveDirection, 0);
+
     }
 
     // Update is called once per frame
