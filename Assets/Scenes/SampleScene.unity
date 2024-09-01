@@ -906,7 +906,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnRate: 1
-  _enemies: []
+  _enemies:
+  - {fileID: 5079484496329599699, guid: 1a5234dfccde7fb48902148004aa1d42, type: 3}
+  - {fileID: 4612612679376513262, guid: b09fbdc8c24efe040860438d77d42b29, type: 3}
+  - {fileID: 5579547355894603682, guid: 822d73e80eeee734e8e78cf77581a3e6, type: 3}
   _isSpawning: 1
 --- !u!1 &1263398735
 GameObject:
