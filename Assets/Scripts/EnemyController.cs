@@ -51,6 +51,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// what happens when the enemy takes damage
+    /// </summary>
+    /// <returns></returns>
     IEnumerator enemyDamage()
     {
         enemyRb.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
