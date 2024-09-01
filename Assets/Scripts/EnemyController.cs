@@ -44,6 +44,10 @@ public class EnemyController : MonoBehaviour
                 gameController.UpdateScore();
             }
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
