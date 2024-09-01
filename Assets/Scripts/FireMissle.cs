@@ -6,8 +6,6 @@
 // Brief Description : Allows a missle to be fired when space is pressed
 *****************************************************************************/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Android.LowLevel;
 
@@ -21,11 +19,5 @@ public class FireMissle : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
