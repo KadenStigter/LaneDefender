@@ -28,9 +28,21 @@ public class EnemyController : MonoBehaviour
         enemyRb.velocity = new Vector2(_speed * moveDirection, 0);
     }
 
+    /// <summary>
+    /// what happens when an enemy is hit by a missile
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("projectile"))
+        {
+            _health -= 1;
+            Destroy(collision.gameObject);
+            if (_health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
