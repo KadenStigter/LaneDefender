@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     private void Shoot_started(InputAction.CallbackContext context)
     {
         var projectile = Instantiate(_missle, transform.position, transform.rotation);
-        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * moveDirection, 0);
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
     }
 
     /// <summary>
