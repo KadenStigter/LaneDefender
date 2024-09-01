@@ -14,14 +14,12 @@ using UnityEngine.InputSystem.Android.LowLevel;
 public class FireMissle : MonoBehaviour
 {
     private GameController gameController;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         gameController = GameObject.FindObjectOfType<GameController>();
-        if (GetComponent<Rigidbody2D>().velocity == Vector2.zero)
+        if(GetComponent<Rigidbody2D>().velocity == Vector2.zero)
         {
-            gameObject.AddComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
         }
     }
 
