@@ -27,15 +27,12 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(_spawnRate);
-        while (true)
+        while (_isSpawning)
         {
             yield return wait;
+            int rand = Random.Range(0, _enemies.Length);
+            GameObject enemyToSpawn = _enemies[rand];
+            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
