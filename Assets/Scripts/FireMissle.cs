@@ -16,7 +16,7 @@ public class FireMissle : MonoBehaviour
     private GameController gameController;
     private void Start()
     {
-        gameController = GameObject.FindObjectOfType<GameController>();
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         if(GetComponent<Rigidbody2D>().velocity == Vector2.zero)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);

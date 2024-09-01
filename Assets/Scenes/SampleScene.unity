@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 194186732}
   m_Layer: 0
   m_Name: EndBarrier
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 194186731}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.14, y: -1.7651523, z: -0.055986293}
+  m_LocalPosition: {x: -9.14, y: -1.24, z: -0.055986293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1624,6 +1624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1946371142}
+  - component: {fileID: 1946371143}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1646,6 +1647,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1946371143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946371141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd2baef23030f944bf754c7e28311dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1975567398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,7 +1706,7 @@ GameObject:
   - component: {fileID: 1994712120}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1759,7 +1772,7 @@ Transform:
   m_GameObject: {fileID: 1994712113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.489621, y: -0.974, z: 0}
+  m_LocalPosition: {x: -7.61, y: -0.974, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1836,7 +1849,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1994712119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1865,8 @@ MonoBehaviour:
   playerInput: {fileID: 1994712120}
   _player: {fileID: 1994712113}
   _playerSpeed: 5
+  _missle: {fileID: 8018694058641389554, guid: e399e4f43e738b7459b9bedd08b2cf2f, type: 3}
+  _missleSpeed: 0
 --- !u!114 &1994712120
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,11 +1,18 @@
-﻿/*****************************************************************************
-// File Name : FireMissle.cs
-// Author : Kaden Stigter
-// Creation Date : August 31, 2024
-//
-// Brief Description : Allows a missle to be fired when space is pressed
-*****************************************************************************/
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-internal class GameController
+public class GameController : MonoBehaviour
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
