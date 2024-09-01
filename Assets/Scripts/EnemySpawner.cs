@@ -24,6 +24,10 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(Spawner());
     }
 
+    /// <summary>
+    /// spawns the enemies
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(_spawnRate);

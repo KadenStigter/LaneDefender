@@ -12,6 +12,10 @@ using UnityEngine.InputSystem.Android.LowLevel;
 public class FireMissle : MonoBehaviour
 {
     private GameController gameController;
+
+    /// <summary>
+    /// Allows the bullet to move in a horizontal direciton when shot
+    /// </summary>
     private void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
