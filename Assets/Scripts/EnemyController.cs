@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
             if (_health <= 0)
             {
                 Destroy(gameObject);
+                gameController.UpdateScore();
             }
         }
     }

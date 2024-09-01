@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _missleSpeed;
     private int missleDirection = 1;
     private float moveDirection;
+    private GameController gameController;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -98,6 +99,14 @@ public class PlayerController : MonoBehaviour
     private void Quit_started(InputAction.CallbackContext context)
     {
         Application.Quit();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameController.LoseALife();
+        }
     }
 
     /// <summary>
