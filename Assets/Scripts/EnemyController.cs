@@ -58,10 +58,4 @@ public class EnemyController : MonoBehaviour
         enemyRb.velocity = new Vector2(_speed * moveDirection, 0);
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //enemyRb.velocity = new Vector2(_speed * moveDirection, 0);
-    }
 }
