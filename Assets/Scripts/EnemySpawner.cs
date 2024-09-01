@@ -15,7 +15,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _spawnRate = 5.0f;
     [SerializeField] private GameObject[] _enemies;
     [SerializeField] private bool _isSpawning = true;
-    private float[] _spawnLocation;
+    private float spawnX = 6.6f;
+    private float[] spawnY;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -23,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(Spawner());
+        spawnY = new float[5];
+        spawnY = new float[] { 0.0f, 1.0f, 2.0f, 3.0f, 4.0f };
     }
 
     /// <summary>
@@ -37,7 +40,10 @@ public class EnemySpawner : MonoBehaviour
             yield return wait;
             int rand = Random.Range(0, _enemies.Length);
             GameObject enemyToSpawn = _enemies[rand];
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+            Vector3 newObsPos = new Vector3();
+            newObsPos.x = spawnX;
+            newObsPos.y = Random.Range(0, spawnY.Length);
+            Instantiate(enemyToSpawn, newObsPos, Quaternion.identity);
         }
     }
 }
