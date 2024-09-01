@@ -12,9 +12,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private float _spawnRate = 1.0f;
+    [SerializeField] private float _spawnRate = 5.0f;
     [SerializeField] private GameObject[] _enemies;
     [SerializeField] private bool _isSpawning = true;
+    private float[] _spawnLocation;
 
     /// <summary>
     /// Start is called before the first frame update
