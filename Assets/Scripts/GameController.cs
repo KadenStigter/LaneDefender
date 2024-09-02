@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        //sets up lives and score UI
         livesText.text = "Lives: " + _lives.ToString();
         scoreText.text = "Score: " + _score.ToString();
         HighScoreTextUpdate();
@@ -68,7 +69,7 @@ public class GameController : MonoBehaviour
 
         if(_lives == 0)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0; //stops game action after player loses all lives
             _hud.SetActive(false);
             _endScreen.SetActive(true);
         }

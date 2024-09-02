@@ -3,7 +3,7 @@
 // Author : Kaden Stigter
 // Creation Date : September 1, 2024
 //
-// Brief Description : 
+// Brief Description : What happens in the menu after the player gets a game over
 *****************************************************************************/
 
 using UnityEngine;

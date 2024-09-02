@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         while (canSpawn)
         {
             yield return wait;
-            int rand = Random.Range(0, _enemy.Length);
+            int rand = Random.Range(0, _enemy.Length); //spawns a random enemy
             int randPos = Random.Range(0, 4);
             GameObject enemyToSpawn = _enemy[rand];
             Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
