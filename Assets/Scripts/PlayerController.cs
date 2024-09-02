@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour
     private InputAction restart;
     private InputAction quit;
     private bool isPlayerMoving;
-    private bool firing = false;
-    private bool ableToFire = true;
     [SerializeField] private GameObject _player;
     [SerializeField] private int _playerSpeed = 5;
     [SerializeField] private GameObject _missle;
@@ -46,7 +44,6 @@ public class PlayerController : MonoBehaviour
         move.started += Move_started;
         move.canceled += Move_canceled;
         shoot.started += Shoot_started;
-        shoot.canceled += Shoot_canceled;
         restart.started += Restart_started;
         quit.started += Quit_started;
 
@@ -61,14 +58,6 @@ public class PlayerController : MonoBehaviour
     {
         var projectile = Instantiate(_missle, transform.position, transform.rotation);
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
-        firing = true;
-        ableToFire = false;
-    }
-
-    private void Shoot_canceled(InputAction.CallbackContext context)
-    {
-        firing = false;
-        ableToFire = true;
     }
 
     /// <summary>
@@ -79,7 +68,6 @@ public class PlayerController : MonoBehaviour
         move.started -= Move_started;
         move.canceled -= Move_canceled;
         shoot.started -= Shoot_started;
-        shoot.canceled -= Shoot_canceled;
         restart.started -= Restart_started;
         quit.started -= Quit_started;
     }
@@ -118,7 +106,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             gameController.LoseALife(); //taken from GameContorller script
-            Destroy(collision.gameObject);
         }
     }
 

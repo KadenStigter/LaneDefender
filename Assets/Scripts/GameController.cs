@@ -65,6 +65,7 @@ public class GameController : MonoBehaviour
     {
         _lives -= 1;
         livesText.text = "Lives: " + _lives.ToString();
+
         if(_lives == 0)
         {
             Time.timeScale = 0;
