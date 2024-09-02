@@ -8,13 +8,14 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class EndMenu : MonoBehaviour
 {
     /// <summary>
     /// restarts the game when the restart button is pressed
     /// </summary>
-   public void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(0);
     }

@@ -9,6 +9,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour
     private int missleDirection = 1;
     private float moveDirection;
     private GameController gameController;
+    public int _lives = 3;
+    public TMP_Text livesText;
+    [SerializeField] private GameObject _hud;
+    [SerializeField] private GameObject _endScreen;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -44,6 +49,9 @@ public class PlayerController : MonoBehaviour
         quit.started += Quit_started;
 
         isPlayerMoving = false;
+        livesText.text = "Lives: " + _lives.ToString();
+        _hud.SetActive(true);
+        _endScreen.SetActive(false);
     }
 
     /// <summary>
@@ -101,7 +109,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            gameController.LoseALife(); //taken from GameContorller script
+            _lives -= 1;
+            livesText.text = "Lives: " + _lives.ToString(); //taken from GameContorller script
+            if (_lives == 0)
+            {
+                Time.timeScale = 0;
+                _hud.SetActive(false);
+                _endScreen.SetActive(true);
+            }
         }
     }
 
