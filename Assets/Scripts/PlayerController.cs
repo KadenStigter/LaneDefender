@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         var projectile = Instantiate(_missle, transform.position, transform.rotation);
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
+        new WaitForSeconds(10.0f);
     }
 
     /// <summary>
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            gameController.LoseALife();
+            gameController.LoseALife(); //taken from GameContorller script
             Destroy(collision.gameObject);
         }
     }
