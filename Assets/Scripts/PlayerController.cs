@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private InputAction restart;
     private InputAction quit;
     private bool isPlayerMoving;
+    private bool firing = false;
+    private bool ableToFire = true;
     [SerializeField] private GameObject _player;
     [SerializeField] private int _playerSpeed = 5;
     [SerializeField] private GameObject _missle;
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
         move.started += Move_started;
         move.canceled += Move_canceled;
         shoot.started += Shoot_started;
+        shoot.canceled += Shoot_canceled;
         restart.started += Restart_started;
         quit.started += Quit_started;
 
@@ -56,9 +59,14 @@ public class PlayerController : MonoBehaviour
     /// <param name="context"></param>
     private void Shoot_started(InputAction.CallbackContext context)
     {
-        var projectile = Instantiate(_missle, transform.position, transform.rotation);
-        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
-        new WaitForSeconds(10.0f);
+        firing = true;
+        ableToFire = false;
+    }
+
+    private void Shoot_canceled(InputAction.CallbackContext context)
+    {
+        firing = false;
+        ableToFire = true;
     }
 
     /// <summary>
@@ -69,6 +77,7 @@ public class PlayerController : MonoBehaviour
         move.started -= Move_started;
         move.canceled -= Move_canceled;
         shoot.started -= Shoot_started;
+        shoot.canceled -= Shoot_canceled;
         restart.started -= Restart_started;
         quit.started -= Quit_started;
     }
@@ -111,6 +120,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator CanShoot()
+    {
+        {
+            new WaitForSeconds(1.5f);
+            firing = false;
+            ableToFire = true;
+        }
+    }
+
+
     /// <summary>
     /// sets up the player to move in a certain direction
     /// </summary>
@@ -124,6 +143,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             _player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+        if(ableToFire)
+        {
+            var projectile = Instantiate(_missle, transform.position, transform.rotation);
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
+        }
+        else
+        {
+            StartCoroutine(CanShoot());
         }
     }
 
