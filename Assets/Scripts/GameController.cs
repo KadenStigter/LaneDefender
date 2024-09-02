@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public int _lives = 3;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private AudioClip _deathSound;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -63,6 +64,7 @@ public class GameController : MonoBehaviour
     {
         _lives -= 1;
         livesText.text = "Lives: " + _lives.ToString();
+        AudioSource.PlayClipAtPoint(_deathSound, transform.position);
 
         if(_lives == 0)
         {

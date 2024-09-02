@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc925778782fe4e81c15199203b957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   _lives: 3
   livesText: {fileID: 911733488}
   _hud: {fileID: 437788093}
@@ -3490,6 +3491,7 @@ MonoBehaviour:
   _lives: 3
   _hud: {fileID: 437788093}
   _endScreen: {fileID: 666975103}
+  _deathSound: {fileID: 8300000, guid: 06b29a6142a197640ba93bfdb400ba2f, type: 3}
 --- !u!82 &1946371144
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3508,7 +3510,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 211
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

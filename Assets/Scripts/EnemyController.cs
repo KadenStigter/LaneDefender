@@ -52,6 +52,7 @@ public class EnemyController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            gameController.LoseALife();
             Destroy(gameObject);
         }
     }

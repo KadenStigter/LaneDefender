@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour
     private GameController gameController;
     public int _lives = 3;
     public TMP_Text livesText;
-    [SerializeField] private GameObject _hud;
-    [SerializeField] private GameObject _endScreen;
     [SerializeField] private AudioClip _missile;
 
     /// <summary>
@@ -50,9 +48,6 @@ public class PlayerController : MonoBehaviour
         quit.started += Quit_started;
 
         isPlayerMoving = false;
-        livesText.text = "Lives: " + _lives.ToString();
-        _hud.SetActive(true);
-        _endScreen.SetActive(false);
     }
 
     /// <summary>
@@ -105,21 +100,6 @@ public class PlayerController : MonoBehaviour
     private void Quit_started(InputAction.CallbackContext context)
     {
         Application.Quit();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            _lives -= 1;
-            livesText.text = "Lives: " + _lives.ToString(); //taken from GameContorller script
-            if (_lives == 0)
-            {
-                Time.timeScale = 0;
-                _hud.SetActive(false);
-                _endScreen.SetActive(true);
-            }
-        }
     }
 
     /// <summary>
