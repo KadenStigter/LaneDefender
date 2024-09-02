@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D enemyRb;
     [SerializeField] private AudioClip _hit;
     [SerializeField] private AudioClip _death;
+    public Animator animator;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -43,6 +44,7 @@ public class EnemyController : MonoBehaviour
             Destroy(collision.gameObject);
             if (_health <= 0)
             {
+                animator.SetBool("IsDead", true);
                 Destroy(gameObject);
                 gameController.UpdateScore();
                 AudioSource.PlayClipAtPoint(_death, transform.position);
@@ -60,8 +62,10 @@ public class EnemyController : MonoBehaviour
     /// <returns></returns>
     IEnumerator enemyDamage()
     {
+        animator.SetBool("IsHit", true);
         enemyRb.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);
+        animator.SetBool("IsHit", false);
         enemyRb.velocity = new Vector2(_speed * moveDirection, 0);
 
     }

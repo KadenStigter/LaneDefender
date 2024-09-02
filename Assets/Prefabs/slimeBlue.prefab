@@ -176,6 +176,7 @@ MonoBehaviour:
   _health: 3
   _hit: {fileID: 8300000, guid: ba99398d5ab4a8f448ca88b5ec0bf341, type: 3}
   _death: {fileID: 8300000, guid: 98fa1aa0e89b19f4a972c83ccbda8e52, type: 3}
+  animator: {fileID: 8275593834131901141}
 --- !u!95 &8275593834131901141
 Animator:
   serializedVersion: 5
