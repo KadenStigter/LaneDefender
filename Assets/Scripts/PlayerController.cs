@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
     /// <param name="context"></param>
     private void Shoot_started(InputAction.CallbackContext context)
     {
+        var projectile = Instantiate(_missle, transform.position, transform.rotation);
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
         firing = true;
         ableToFire = false;
     }
@@ -120,15 +122,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator CanShoot()
-    {
-        {
-            new WaitForSeconds(1.5f);
-            firing = false;
-            ableToFire = true;
-        }
-    }
-
 
     /// <summary>
     /// sets up the player to move in a certain direction
@@ -143,15 +136,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             _player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
-        if(ableToFire)
-        {
-            var projectile = Instantiate(_missle, transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
-        }
-        else
-        {
-            StartCoroutine(CanShoot());
         }
     }
 
