@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8715358379200943191}
   - component: {fileID: -1633114710125673896}
   - component: {fileID: 8033117524281368870}
+  - component: {fileID: 8275593834131901141}
   m_Layer: 0
   m_Name: slimeBlue
   m_TagString: Enemy
@@ -116,21 +117,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.49, y: 0.34}
+    oldSize: {x: 1.225, y: 0.85}
     newSize: {x: 0.49, y: 0.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49, y: 0.34}
+  m_Size: {x: 1.225, y: 0.85}
   m_EdgeRadius: 0
 --- !u!50 &-1633114710125673896
 Rigidbody2D:
@@ -173,3 +174,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _health: 3
+  _hit: {fileID: 8300000, guid: ba99398d5ab4a8f448ca88b5ec0bf341, type: 3}
+  _death: {fileID: 8300000, guid: 98fa1aa0e89b19f4a972c83ccbda8e52, type: 3}
+--- !u!95 &8275593834131901141
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079484496329599699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dab43e35ea00e05498baf0df6d610c15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

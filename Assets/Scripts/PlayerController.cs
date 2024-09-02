@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public TMP_Text livesText;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private AudioClip _missile;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         var projectile = Instantiate(_missle, transform.position, transform.rotation);
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(_missleSpeed * missleDirection, 0);
+        AudioSource.PlayClipAtPoint(_missile, transform.position);
     }
 
     /// <summary>

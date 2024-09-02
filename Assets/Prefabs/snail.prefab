@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 787536705023834205}
   - component: {fileID: 549363831532668892}
   - component: {fileID: 1970406457505815837}
+  - component: {fileID: 8563854830264668050}
   m_Layer: 0
   m_Name: snail
   m_TagString: Enemy
@@ -101,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _health: 5
+  _hit: {fileID: 8300000, guid: ba99398d5ab4a8f448ca88b5ec0bf341, type: 3}
+  _death: {fileID: 8300000, guid: 98fa1aa0e89b19f4a972c83ccbda8e52, type: 3}
 --- !u!61 &549363831532668892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,21 +133,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.55, y: 0.4}
+    oldSize: {x: 1.1, y: 0.8}
     newSize: {x: 0.55, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55, y: 0.4}
+  m_Size: {x: 1.1, y: 0.8}
   m_EdgeRadius: 0
 --- !u!50 &1970406457505815837
 Rigidbody2D:
@@ -173,3 +176,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &8563854830264668050
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405456268666972564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 01ead6c44e223d5428404c7cdf2f28ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

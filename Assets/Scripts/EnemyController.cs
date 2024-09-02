@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     private int moveDirection = -1;
     [SerializeField] private int _health;
     private Rigidbody2D enemyRb;
+    [SerializeField] private AudioClip _hit;
+    [SerializeField] private AudioClip _death;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -37,11 +39,13 @@ public class EnemyController : MonoBehaviour
         {
             _health -= 1;
             StartCoroutine(enemyDamage());
+            AudioSource.PlayClipAtPoint(_hit, transform.position);
             Destroy(collision.gameObject);
             if (_health <= 0)
             {
                 Destroy(gameObject);
                 gameController.UpdateScore();
+                AudioSource.PlayClipAtPoint(_death, transform.position);
             }
         }
         if (collision.gameObject.CompareTag("Player"))
