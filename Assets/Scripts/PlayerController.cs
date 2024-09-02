@@ -5,14 +5,10 @@
 //
 // Brief Description : Sets up the main controls for the player in the game
 *****************************************************************************/
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerController : MonoBehaviour
 {
@@ -108,7 +104,6 @@ public class PlayerController : MonoBehaviour
             gameController.LoseALife(); //taken from GameContorller script
         }
     }
-
 
     /// <summary>
     /// sets up the player to move in a certain direction

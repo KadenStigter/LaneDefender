@@ -6,9 +6,6 @@
 // Brief Description : What happens when an enemy collides with the end of the screen
 *****************************************************************************/
 
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EndBarrier : MonoBehaviour

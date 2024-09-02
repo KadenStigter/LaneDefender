@@ -6,8 +6,6 @@
 // Brief Description : Controls most of the game's functions, such as lives and score
 *****************************************************************************/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -17,7 +15,7 @@ public class GameController : MonoBehaviour
     public TMP_Text livesText;
     public TMP_Text highScoreText;
     [SerializeField] private int _score = 0;
-    [SerializeField] private int _lives = 3;
+    public int _lives = 3;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _endScreen;
 
